@@ -1,13 +1,34 @@
 
 //8 Create an array with the cards
- var cards = ["queen", "queen", "king", "king"];
+ //var cards = ["queen", "queen", "king", "king"];
+ var cards = [ 
+   {
+    card: 'queen',
+    suit: 'hearts',
+    cardImage: 'images/queen-of-hearts.png'
+  },
+  {
+    card: 'queen',
+    suit: 'diamonds',
+    cardImage: 'images/queen-of-diamonds.png'
+  },
+  {
+    card: 'king',
+    suit: 'hearts',
+    cardImage: 'images/king-of-hearts.png'
+  },
+  {
+    card: 'king',
+    suit: 'diamonds',
+    cardImage: 'images/king-of-diamonds.png'
+  }
+
+ ];
  
 //Create an array cardsInPlay, Set its value to an empty array []
 var cardsInPlay = [];
 
-
-//9.1create a function to store all steps that should happen when the user flips a card.
-
+//9. Create a function checkForMatch
 var checkForMatch = function() {
 
 if (cardsInPlay[0] === cardsInPlay[1]) {
@@ -20,9 +41,15 @@ if (cardsInPlay[0] === cardsInPlay[1]) {
 
 var flipCard = function (cardId){
 	//9 The message that is logged in the console should read
-	console.log("User flipped" + cards[cardId]);
-cardsInPlay.push(cards[cardId]);
- 
+	//10 update this code so that we are accessing the rank property of this object.
+console.log("User flipped" + cards[cardId].rank);
+cardsInPlay.push(cards[cardId].rank);
+
+
+console.log(cards[cardId].cardImage); 
+console.log(cards[cardId].suit); 
+
+
 
 //8 Create a variable cardOne 
 //8Store the first item in the cards array in the variable cardOne
