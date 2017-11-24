@@ -38,16 +38,24 @@ if (cardsInPlay[0] === cardsInPlay[1]) {
 	}
 };
 
-
-var flipCard = function (cardId){
+//11
+var flipCard = function (){
 	//9 The message that is logged in the console should read
 	//10 update this code so that we are accessing the rank property of this object.
-console.log("User flipped" + cards[cardId].rank);
-cardsInPlay.push(cards[cardId].rank);
 
 
-console.log(cards[cardId].cardImage); 
-console.log(cards[cardId].suit); 
+//11
+cardId = this.getAttribute('data-id');
+  console.log(cardId);
+
+  //11
+   cardsInPlay.push(cards[cardId].card);
+
+   //11
+     this.setAttribute('src', cards[cardId].cardImage);
+
+
+
 
 
 
@@ -83,14 +91,32 @@ if (cardsInPlay.length === 2) {
 //8 For the condition, check to see if the first card in the cardsInPlay array (cardsInPlay[0]) is equal to the second card in the cardsInPlay array.
 
 checkForMatch();
+
+cardsInPlay =[];
 }
 
 };
+//11
+var createBoard = function() {
+for (var i = 0; i < cards.length; i++) {
 
 
-flipCard(0);
-flipCard(2);
+var cardElement = document.createElement('img');
+//11 Now use the setAttribute() method to add a src attribute for the cardElement. The src should be "images/back.png"
 
+
+cardElement.setAttribute('src', 'images/back.png');
+//11
+  cardElement.setAttribute('data-id', i);
+//11
+  cardElement.addEventListener('click', flipCard);
+
+document.getElementById('game-board').appendChild(cardElement);
+}
+
+}
+//11
+createBoard();
 
 
 
